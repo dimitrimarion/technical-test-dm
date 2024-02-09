@@ -6,7 +6,7 @@ import Loader from "../../components/loader";
 import LoadingButton from "../../components/loadingButton";
 import api from "../../services/api";
 
-const NewList = () => {
+const UserList = () => {
   const [users, setUsers] = useState(null);
   const [projects, setProjects] = useState([]);
   const [usersFiltered, setUsersFiltered] = useState(null);
@@ -254,4 +254,4 @@ const UserCard = ({ hit, projects }) => {
   );
 };
 
-export default NewList;
+export default UserList;
