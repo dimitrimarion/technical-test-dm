@@ -66,7 +66,7 @@ const Activities = ({ date, user, project }) => {
   const days = getDaysInMonth(date.getMonth(), date.getFullYear());
   const onAddActivities = (project) => {
     const found = activities.find((a) => a.projectId === project._id);
-    if (found) return toast.error(`Project ${project.name} already added !`);
+    if (found && found.userId == user._id) return toast.error(`Project ${project.name} already added !`);
     setActivities([
       ...activities,
       {
@@ -78,6 +78,7 @@ const Activities = ({ date, user, project }) => {
         userSellPerDay: user.sellPerDay,
         userJobTitle: user.job_title,
         userAvatar: user.avatar,
+        userName: user.name,
         total: 0,
         cost: 0,
         value: 0,
@@ -180,7 +181,9 @@ const Activities = ({ date, user, project }) => {
                           <th className="w-[100px] border-t border-b border-r text-[12px] font-bold text-[#212325] text-left">
                             <div className="flex flex-1 items-center justify-between gap-1 px-2">
                               <div className="flex flex-1 items-center justify-start gap-1">
-                                <div>{e.projectName}</div>
+                                <div>
+                                  {e.projectName} - {e.userName}
+                                </div>
                               </div>
                               <div className="flex flex-col items-end">
                                 <div className="text-xs italic font-normal">{(e.total / 8).toFixed(2)} days</div>

@@ -5,6 +5,7 @@ const MODELNAME = "activity";
 const Schema = new mongoose.Schema({
   projectId: { type: String },
   userId: { type: String },
+  userName: { type: String },
   userAvatar: { type: String, default: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" },
   userCostPerDay: { type: Number },
   userSellPerDay: { type: Number },
